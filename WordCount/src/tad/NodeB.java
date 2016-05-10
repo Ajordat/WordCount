@@ -7,6 +7,8 @@ public class NodeB {
 	
 	public NodeB(Element e){
 		this.e = e;
+		left = null;
+		right = null;
 	}
 	
 	public Element getElement() {

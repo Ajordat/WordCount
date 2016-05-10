@@ -22,5 +22,11 @@ public abstract class BTree {
 		if(tree != null) return tree.height();
 		return 0;
 	}
+	public NodeB getTree() {
+		return tree;
+	}
+	public void setTree(NodeB tree) {
+		this.tree = tree;
+	}
 	
 }
