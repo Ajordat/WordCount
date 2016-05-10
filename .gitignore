@@ -1,6 +1,7 @@
 # Directories #
 /build/
 /bin/
+/bin/.gitignore
 target/
  
 # OS Files #
