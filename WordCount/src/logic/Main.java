@@ -1,20 +1,24 @@
 package logic;
 
-import tad.Tree;
+import tad.Node;
+import tad.SearchTree;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Tree t =  new Tree();
-		t.add(new Node(new Word("C")));
-		t.add(new Node(new Word("B")));
-		t.add(new Node(new Word("A")));
-		System.out.println("\nPreorder\n--------"); 
+		SearchTree t =  new SearchTree();
+		t.add(new Node(new Word("ALEX")));
+		t.add(new Node(new Word("SAMUEL")));
+		t.add(new Node(new Word("GABRIEL")));
+		t.add(new Node(new Word("ROGER")));
+		t.add(new Node(new Word("MARTA")));
+		System.out.println("\nPreOrder\n--------"); 
 		t.printPreOrder();
-		t.getNode().rotationLL();
-		System.out.println("\nPreorder\n--------"); 
-		t.printPreOrder();
-		
+		System.out.println("\nInOrder\n-------"); 
+		t.printInOrder();
+		System.out.println("\nPostOrder\n---------");
+		t.printPostOrder();
+		System.out.println("\nAlçada: "+t.height());		
 	}
 
 }

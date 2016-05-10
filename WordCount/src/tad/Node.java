@@ -1,40 +1,51 @@
-package logic;
+package tad;
 
 public class Node {
 	private Node left;
 	private Node right;
-	private Word word;
+	private Element e;
 	
-	public Node(Word word){
-		this.word = word;
+	public Node(Element e){
+		this.e = e;
 	}
 	
-	public Word getWord() {
-		return word;
+	public Element getElement() {
+		return e;
 	}
 
-	public void setWord(Word word) {
-		this.word = word;
+	public void setElement(Element e) {
+		this.e = e;
 	}
 
 	public void add(Node node){
-		if(node.getWord().compareTo(word) < 0){
+		if(node.getElement().compareTo(e) <	0){
 			if(left == null){
 				left = node;
+				left.getElement().add();
 			}
-			else{
-				left.add(node);
-			}
+			else left.add(node);
+			
 		}
-		else if (node.getWord().compareTo(word) > 0){
+		else if (node.getElement().compareTo(e) > 0){
 			if(right == null){
 				right = node;
+				right.getElement().add();
 			}
-			else{
-				right.add(node);
-			}
+			else right.add(node);
 		}
-		else node.getWord().add();
+		else e.add();
+	}
+	
+	public Element getValue(String key){
+		if(e.compareTo(key) > 0){
+			if(left == null) return null;
+			else return left.getValue(key);
+		}
+		else if(e.compareTo(key) < 0){
+			if(right == null) return null;
+			else return right.getValue(key);
+		}
+		else return e;
 	}
 	
 	public int height(){
@@ -44,60 +55,43 @@ public class Node {
 		return Math.max(left.height(), right.height())+1;
 	}
 	
-	public int getValue(String key){
-		if(word.getWord().equals(key)){
-			System.out.println("Trobat.");
-			return word.getValue();
-		}
-		if(word.getWord().compareTo(key) > 0){
-			System.out.println("Esquerra.");
-			if(left != null) return left.getValue(key);
-			else return -1;
-		}
-		else{
-			System.out.println("Dreta.");
-			if(right != null) return right.getValue(key);
-			else return -1;
-		}
-	}
-	
 	public void rotationLL(){
 		if(left == null) return;
 		right = this;
 		right.left = left.right;
-		word = left.word;
-		left = left.left;		
+		e = left.e;
+		left = left.left;
 	}
 	
 	public void rotationRR(){
 		if(right == null) return;
 		this.left = this;
 		this.left.right = this.right.left;
-		this.word = right.word;
+		this.e = right.e;
 		this.right = this.right.right;
 	}
 	
 	public void printPreOrder(){
-		System.out.println(word);
+		System.out.println(e);
 		if(left != null) left.printPreOrder();
 		if(right != null) right.printPreOrder();
 	}
 	
 	public void printInOrder(){
 		if(left != null) left.printInOrder();
-		System.out.println(word);
+		System.out.println(e);
 		if(right != null) right.printInOrder();
 	}
 	
 	public void printPostOrder(){
 		if(left != null) left.printPostOrder();
 		if(right != null) right.printPostOrder();
-		System.out.println(word);
+		System.out.println(e);
 	}
 	
 	@Override
 	public String toString(){
-		return word.toString();
+		return e.toString();
 	}
 	
 }

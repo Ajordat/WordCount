@@ -1,12 +1,14 @@
 package logic;
 
-public class Word implements Comparable<Word>{
+import tad.Element;
+
+public class Word extends Element{
 	private String word;
+	private int value;
+	
 	public int getValue() {
 		return value;
 	}
-
-	private int value;
 	
 	public Word(String word){
 		this.word = word;
@@ -25,10 +27,6 @@ public class Word implements Comparable<Word>{
 		value++;
 	}
 	
-	public int compareTo(Word o) {
-		return word.compareTo(o.getWord());
-	}
-	
 	public boolean equals (Object o){
 		if(o.getClass() != String.class) return false;
 		if(((String)o).equals(word)) return true;
@@ -37,7 +35,18 @@ public class Word implements Comparable<Word>{
 	
 	@Override
 	public String toString(){
-		return word;
+		return word+" "+value;
+		//return Integer.toString(value);
+	}
+
+	@Override
+	public int compareTo(Element o) {
+		return word.compareToIgnoreCase(((Word) o).getWord());
+	}
+	
+	@Override
+	public int compareTo(String key) {
+		return word.compareToIgnoreCase(key);
 	}
 	
 }

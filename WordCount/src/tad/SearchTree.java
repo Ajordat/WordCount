@@ -1,16 +1,15 @@
 package tad;
 
-import logic.Node;
-
-public class Tree {
+public class SearchTree {
 	private Node node;
 	
-	public Tree(){
+	public SearchTree(){
 		node = null;
 	}
 	
-	public Tree(Node node){
+	public SearchTree(Node node){
 		this.node = node;
+		node.getElement().add();
 	}
 	
 	public Node getNode() {
@@ -22,9 +21,9 @@ public class Tree {
 	}
 
 	public void add(Node node){
-		System.out.println(node);
 		if(this.node == null){
 			this.node = node;
+			this.node.getElement().add();
 		}
 		else{
 			this.node.add(node);
@@ -48,8 +47,8 @@ public class Tree {
 		return node.height();
 	}
 	
-	public int getValue(String word){
-		return node.getValue(word);
+	public Element getValue(String key){
+		return node.getValue(key);
 	}
 	
 }
