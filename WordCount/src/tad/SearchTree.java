@@ -1,54 +1,32 @@
 package tad;
 
-public class SearchTree {
-	private Node node;
+public class SearchTree extends BTree {
 	
 	public SearchTree(){
-		node = null;
+		tree = null;
 	}
 	
-	public SearchTree(Node node){
-		this.node = node;
-		node.getElement().add();
+	public SearchTree(NodeSearch node){
+		tree = node;
+		node.getElement().increaseValue();
 	}
 	
-	public Node getNode() {
-		return node;
+	public SearchTree(Element e){
+		tree = new NodeSearch(e);
 	}
-
-	public void setNode(Node node) {
-		this.node = node;
-	}
-
-	public void add(Node node){
-		if(this.node == null){
-			this.node = node;
-			this.node.getElement().add();
+	
+	public void add(Element e){
+		if(tree == null){
+			tree = new NodeSearch(e);
+			tree.getElement().increaseValue();
 		}
 		else{
-			this.node.add(node);
+			((NodeSearch) tree).add(e);
 		}
 	}
-	
-	public void printPreOrder(){
-		if(node != null) node.printPreOrder();
-	}
-	
-	public void printInOrder(){
-		if(node != null) node.printInOrder();
-	}
-	
-	public void printPostOrder(){
-		if(node != null) node.printPostOrder();
-	}
-	
-	public int height(){
-		if(node == null) return 0;
-		return node.height();
-	}
-	
+
 	public Element getValue(String key){
-		return node.getValue(key);
+		return tree.getValue(key);
 	}
 	
 }

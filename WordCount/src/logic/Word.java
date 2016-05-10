@@ -22,10 +22,6 @@ public class Word extends Element{
 	public void setWord(String word) {
 		this.word = word;
 	}
-
-	public void add(){
-		value++;
-	}
 	
 	public boolean equals (Object o){
 		if(o.getClass() != String.class) return false;
@@ -35,7 +31,7 @@ public class Word extends Element{
 	
 	@Override
 	public String toString(){
-		return word+" "+value;
+		return word;
 		//return Integer.toString(value);
 	}
 
@@ -47,6 +43,15 @@ public class Word extends Element{
 	@Override
 	public int compareTo(String key) {
 		return word.compareToIgnoreCase(key);
+	}
+
+	@Override
+	public void increaseValue() {
+		value++;
+	}
+
+	public void resetValue(){
+		value=0;
 	}
 	
 }
