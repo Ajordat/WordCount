@@ -49,34 +49,30 @@ public class AVLTree extends BTree {
 	@Override
 	public void add(Element e) {
 		if(tree == null) tree = new NodeB(e);
-		else insert(tree, e);
+		else tree = insert(tree, e);
 	}
+	
 	public int height(NodeB node){
 		if(node == null) return 0;
 		return node.height();
 	}
 	
-	private void insert(NodeB node, Element element){
-		System.out.println(element);
+	private NodeB insert(NodeB node, Element element){
 		if(element.compareTo(node.e) <	0){
 			if(node.left == null){
-				System.out.println("insert left");
 				node.left = new NodeB(element);
 			}
 			else{
-				System.out.println("check left");
-				insert(node.left, element);
+				node.left = insert(node.left, element);
 			}
 			
 		}
 		else if(element.compareTo(node.e) > 0){
 			if(node.right == null){
-				System.out.println("insert right");
 				node.right = new NodeB(element);
 			}
 			else{
-				System.out.println("check right");
-				insert(node.right, element);
+				node.right = insert(node.right, element);
 			}
 			
 		}
@@ -84,23 +80,18 @@ public class AVLTree extends BTree {
 		
 		if(height(node.left) - height(node.right) > 1){
 			if(element.compareTo(node.left.e) < 0){
-				System.out.println("RotationLL: "+node);
 				node = rotationLL(node);
 			}else{
-				System.out.println("RotationLR: " + node);
 				node = rotationLR(node);
 			}
 		}else if(height(node.left) - height(node.right) < -1){
 			if(element.compareTo(node.right.e) > 0){
-				System.out.println("RotationRR: "+node);
 				node = rotationRR(node);
 			}else{
-				System.out.println("RotationRL: "+node);
 				node = rotationRL(node);
 			}
 		}
-		node.printPreOrder();
-		System.out.println();
+		return node;
 	}
 
 }

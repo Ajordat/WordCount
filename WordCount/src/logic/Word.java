@@ -31,7 +31,7 @@ public class Word extends Element{
 	
 	@Override
 	public String toString(){
-		return word;
+		return word+" ";
 		//return Integer.toString(value);
 	}
 
