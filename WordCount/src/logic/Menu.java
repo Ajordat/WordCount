@@ -5,10 +5,20 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Menu {
+	
+	/** MAIN MENU CONSTANTS **/
 	public static final int SELECT_FILE = 1;
 	public static final int CALCULATE_APPEARANCES = 2;
 	public static final int VIEW_RESULTS = 3;
 	public static final int EXIT = 4;
+	
+	/** CALCULATE_APPEARANCES MENU CONSTANTS **/
+	public static final int SEARCH_TREE = 1;
+	public static final int AVL_TREE = 2;
+	
+	/** VIEW_RESULTS MENU CONSTANTS **/
+	public static final int NUMBER_OF_APPEARANCES = 1;
+	public static final int APHABETICALLY = 2;
 	
 	public static void printMain(){
 		System.out.println("------- Word Counter -------");
@@ -52,14 +62,16 @@ public class Menu {
 		@SuppressWarnings("resource")
 		Scanner scr = new Scanner(System.in);
 		System.out.print("File: ");
-		String file = scr.nextLine();
+		String fileName = scr.nextLine();
+		Scanner file;
 		try {
-			Scanner file1 = new Scanner(new FileReader(file));
+			file = new Scanner(new FileReader(fileName));
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 			return "";
 		}
-		return file;
+		file.close();
+		return fileName;
 	}
 	
 }

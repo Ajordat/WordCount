@@ -51,7 +51,9 @@ public abstract class BTree {
 		if(tree == null) return null;
 		return tree.e;
 	}
-	
+	public boolean empty(){
+		return tree == null;
+	}
 	public void clear(){
 		tree = null;
 	}
