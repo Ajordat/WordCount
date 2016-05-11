@@ -60,5 +60,15 @@ public class NodeB {
 	public String toString(){
 		return e.toString();
 	}
+
+	public Element first() {
+		if(left == null) return e;
+		return left.first();
+	}
+	
+	public Element last(){
+		if(right == null) return e;
+		return right.last();
+	}
 	
 }
