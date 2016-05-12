@@ -8,6 +8,7 @@ import logic.Word;
 
 public abstract class BTree {
 	protected NodeB tree;
+	protected int size = 0;
 	
 	public abstract Element getValue(String key);
 	public abstract void add(Element e);
@@ -22,6 +23,10 @@ public abstract class BTree {
 	
 	public void printPostOrder(){
 		if(tree != null) tree.printPostOrder();
+	}
+	
+	public int size(){
+		return size;
 	}
 	
 	public int height(){
@@ -51,11 +56,14 @@ public abstract class BTree {
 		if(tree == null) return null;
 		return tree.e;
 	}
+	
 	public boolean empty(){
 		return tree == null;
 	}
+	
 	public void clear(){
 		tree = null;
+		size = 0;
 	}
 	
 	public void loadTest(){
@@ -78,6 +86,7 @@ public abstract class BTree {
 				Scanner scanner = new Scanner(line.replaceAll("[^a-z^A-Z\\s]", "").toLowerCase());
 				while(scanner.hasNext()){
 					add(new Word(scanner.next()));
+					size++;
 				}
 				scanner.close();
 			}

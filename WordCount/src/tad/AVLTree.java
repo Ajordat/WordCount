@@ -1,5 +1,11 @@
 package tad;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
+import logic.Word;
+
 public class AVLTree extends BTree {
 
 	public AVLTree(){
@@ -15,7 +21,7 @@ public class AVLTree extends BTree {
 		//if(node == null || node.left == null) return node;
 		NodeB aux = node.left;
 		node.left = aux.right;
-		aux.right = node;		
+		aux.right = node;
 		return aux;
 	}
 	
@@ -43,12 +49,15 @@ public class AVLTree extends BTree {
 
 	@Override
 	public Element getValue(String key) {
-		return null;
+		return tree.getValue(key);
 	}
 
 	@Override
 	public void add(Element e) {
-		if(tree == null) tree = new NodeB(e);
+		if(tree == null){
+			tree = new NodeB(e);
+			tree.e.increaseValue();
+		}
 		else tree = insert(tree, e);
 	}
 	
@@ -61,37 +70,76 @@ public class AVLTree extends BTree {
 		if(element.compareTo(node.e) <	0){
 			if(node.left == null){
 				node.left = new NodeB(element);
+				node.left.e.increaseValue();
 			}
 			else{
 				node.left = insert(node.left, element);
 			}
-			
+			int hLeft = height(node.left);
+			int hRight = height(node.right);
+			if(hLeft - hRight > 1){
+				if(element.compareTo(node.left.e) < 0){
+					node = rotationLL(node);
+				}else{
+					node = rotationLR(node);
+				}
+			}else if(hLeft - hRight < -1){
+				if(element.compareTo(node.right.e) > 0){
+					node = rotationRR(node);
+				}else{
+					node = rotationRL(node);
+				}
+			}
 		}
 		else if(element.compareTo(node.e) > 0){
 			if(node.right == null){
 				node.right = new NodeB(element);
+				node.right.e.increaseValue();
 			}
 			else{
 				node.right = insert(node.right, element);
 			}
-			
+			int hLeft = height(node.left);
+			int hRight = height(node.right);
+			if(hLeft - hRight > 1){
+				if(element.compareTo(node.left.e) < 0){
+					node = rotationLL(node);
+				}else{
+					node = rotationLR(node);
+				}
+			}else if(hLeft - hRight < -1){
+				if(element.compareTo(node.right.e) > 0){
+					node = rotationRR(node);
+				}else{
+					node = rotationRL(node);
+				}
+			}
 		}
 		else node.e.increaseValue();
 		
-		if(height(node.left) - height(node.right) > 1){
-			if(element.compareTo(node.left.e) < 0){
-				node = rotationLL(node);
-			}else{
-				node = rotationLR(node);
-			}
-		}else if(height(node.left) - height(node.right) < -1){
-			if(element.compareTo(node.right.e) > 0){
-				node = rotationRR(node);
-			}else{
-				node = rotationRL(node);
-			}
-		}
 		return node;
+	}
+	
+	@Override
+	public void loadFile(String fileName){
+		try {
+			Scanner file = new Scanner(new FileReader(fileName));
+			while(file.hasNext()){
+				String line = file.nextLine();
+				Scanner scanner = new Scanner(line.replaceAll("[^a-z^A-Z\\s]", "").toLowerCase());
+				while(scanner.hasNext()){
+					//getValue(scanner.next());
+					add(new Word(scanner.next()));
+					size++;
+				}
+				scanner.close();
+			}
+			file.close();			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (NullPointerException e){
+			e.printStackTrace();
+		}
 	}
 
 }

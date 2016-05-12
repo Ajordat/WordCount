@@ -1,5 +1,9 @@
 package logic;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.ThreadMXBean;
+
 import tad.AVLTree;
 import tad.SearchTree;
 
@@ -28,19 +32,35 @@ public class Main {
 						break;
 					}
 					Menu.printCalculateAppearances();
-					switch(Menu.getOption()){
-					case Menu.SEARCH_TREE:
-						method = Menu.SEARCH_TREE;
-						searchTree.clear();
-						searchTree.loadFile(fileName);
-						break;
-					case Menu.AVL_TREE:
-						method = Menu.AVL_TREE;
-						avlTree.clear();
-						avlTree.loadFile(fileName);
-						break;
-					}
+					ThreadMXBean th = ManagementFactory.getThreadMXBean();
+					long inici = System.nanoTime();
 					
+					MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+					switch(Menu.getOption()){
+						case Menu.SEARCH_TREE:
+							method = Menu.SEARCH_TREE;
+							searchTree.clear();
+							searchTree.loadFile(fileName);
+							System.out.println("first element: "+searchTree.first());
+							System.out.println("last element: "+searchTree.last());
+							System.out.println("height: "+searchTree.height());
+							System.out.println("size: "+searchTree.size());
+							break;
+						case Menu.AVL_TREE:
+							method = Menu.AVL_TREE;
+							avlTree.clear();
+							avlTree.loadFile(fileName);
+							System.out.println("first element: "+avlTree.first());
+							System.out.println("last element: "+avlTree.last());
+							System.out.println("height: " +avlTree.height());
+							System.out.println("size: "+avlTree.size());
+							break;
+					}
+					System.out.println("memory init: "+tm.getHeapMemoryUsage().getInit());
+					System.out.println("memory used: "+tm.getHeapMemoryUsage().getUsed());
+					System.out.println("memory max: "+tm.getHeapMemoryUsage().getMax());
+					System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
+					System.out.println("Temps CPU = " + th.getCurrentThreadCpuTime()/1000000);
 					break;
 					
 				case Menu.VIEW_RESULTS:

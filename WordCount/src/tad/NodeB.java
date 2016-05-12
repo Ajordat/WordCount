@@ -1,5 +1,7 @@
 package tad;
 
+import logic.Word;
+
 public class NodeB {
 	protected NodeB left;
 	protected NodeB right;
@@ -21,11 +23,11 @@ public class NodeB {
 
 	public Element getValue(String key){
 		if(e.compareTo(key) > 0){
-			if(left == null) return null;
+			if(left == null) return new Word(key);
 			else return left.getValue(key);
 		}
 		else if(e.compareTo(key) < 0){
-			if(right == null) return null;
+			if(right == null) return new Word(key);
 			else return right.getValue(key);
 		}
 		else return e;
