@@ -16,6 +16,16 @@ public class Main {
 	
 	public static void main(String[] args) {
 		int option, optionResults;
+		avlTree = new AVLTree();
+		avlTree.loadTest();
+		avlTree.printInOrder();
+		System.out.println();
+		avlTree.remove("A");
+		avlTree.remove("R");
+		avlTree.remove("K");
+		avlTree.remove("D");
+		avlTree.remove("A");
+		avlTree.printInOrder();
 		while(!exit){
 			Menu.printMain();
 			option = Menu.getOption();
@@ -33,10 +43,13 @@ public class Main {
 					}
 					Menu.printCalculateAppearances();
 					ThreadMXBean th = ManagementFactory.getThreadMXBean();
-					long inici = System.nanoTime();
 					
 					MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
-					switch(Menu.getOption()){
+					int opt = Menu.getOption();
+					
+					long inici = System.nanoTime();
+					long timeCPU = th.getCurrentThreadCpuTime();
+					switch(opt){
 						case Menu.SEARCH_TREE:
 							method = Menu.SEARCH_TREE;
 							searchTree.clear();
@@ -60,7 +73,7 @@ public class Main {
 					System.out.println("memory used: "+tm.getHeapMemoryUsage().getUsed());
 					System.out.println("memory max: "+tm.getHeapMemoryUsage().getMax());
 					System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-					System.out.println("Temps CPU = " + th.getCurrentThreadCpuTime()/1000000);
+					System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 					break;
 					
 				case Menu.VIEW_RESULTS:

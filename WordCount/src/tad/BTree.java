@@ -86,7 +86,6 @@ public abstract class BTree {
 				Scanner scanner = new Scanner(line.replaceAll("[^a-z^A-Z\\s]", "").toLowerCase());
 				while(scanner.hasNext()){
 					add(new Word(scanner.next()));
-					size++;
 				}
 				scanner.close();
 			}
