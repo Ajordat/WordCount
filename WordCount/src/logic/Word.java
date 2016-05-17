@@ -25,13 +25,13 @@ public class Word extends Element{
 	
 	public boolean equals (Object o){
 		if(o.getClass() != String.class) return false;
-		if(((String)o).equals(word)) return true;
+		if(((String) o).equals(word)) return true;
 		return false;
 	}
 	
 	@Override
 	public String toString(){
-		return word;
+		return word + " " + value;
 	}
 
 	@Override
@@ -50,11 +50,11 @@ public class Word extends Element{
 	}
 	@Override
 	public void increaseValue(int inc) {
-		value+=inc;
+		value += inc;
 	}
 
 	public void resetValue(){
-		value=0;
+		value = 0;
 	}
 	
 }

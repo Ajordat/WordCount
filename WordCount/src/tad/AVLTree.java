@@ -17,27 +17,27 @@ public class AVLTree extends BTree {
 		node.getElement().increaseValue();
 	}
 	
-	public NodeB rotationLL(NodeB node){
+	private NodeB rotationLL(NodeB node){
 		NodeB aux = node.left;
 		node.left = aux.right;
 		aux.right = node;
 		return aux;
 	}
 	
-	public NodeB rotationRR(NodeB node){
+	private NodeB rotationRR(NodeB node){
 		NodeB aux = node.right;
 		node.right = aux.left;
 		aux.left = node;		
 		return aux;
 	}
 	
-	public NodeB rotationLR(NodeB node){
+	private NodeB rotationLR(NodeB node){
 		node.left = rotationRR(node.left);
 		node = rotationLL(node);
 		return node;
 	}
 	
-	public NodeB rotationRL(NodeB node){
+	private NodeB rotationRL(NodeB node){
 		node.right = rotationLL(node.right);
 		node = rotationRR(node);
 		return node;
@@ -55,7 +55,8 @@ public class AVLTree extends BTree {
 			tree.e.increaseValue();
 			size++;
 		}
-		else tree = insert(tree, e);
+		else tree = add(tree, e);
+		//size++;
 	}
 	
 	public int height(NodeB node){
@@ -63,7 +64,7 @@ public class AVLTree extends BTree {
 		return node.height();
 	}
 	
-	private NodeB insert(NodeB node, Element element){
+	private NodeB add(NodeB node, Element element){
 		if(element.compareTo(node.e) <	0){
 			if(node.left == null){
 				node.left = new NodeB(element);
@@ -71,7 +72,7 @@ public class AVLTree extends BTree {
 				size++;
 			}
 			else{
-				node.left = insert(node.left, element);
+				node.left = add(node.left, element);
 			}
 			int hLeft = height(node.left);
 			int hRight = height(node.right);
@@ -90,7 +91,7 @@ public class AVLTree extends BTree {
 				size++;
 			}
 			else{
-				node.right = insert(node.right, element);
+				node.right = add(node.right, element);
 			}
 			int hLeft = height(node.left);
 			int hRight = height(node.right);
@@ -113,9 +114,15 @@ public class AVLTree extends BTree {
 	private NodeB remove(NodeB node, String key){
 		if(node.e.compareTo(key) > 0){
 			if(node.left != null) node.left = remove(node.left, key);
+			if(height(node.left) - height(node.right) > 1){
+				//Rotacions
+			}
 		}
 		else if(node.e.compareTo(key) < 0){
 			if(node.right != null) node.right = remove(node.right, key);
+			if(height(node.left) - height(node.right) < -1){
+				//Rotacions
+			}
 		}
 		else{
 			if(node.left != null){
@@ -132,6 +139,9 @@ public class AVLTree extends BTree {
 	private NodeB removeLast(NodeB node) {
 		if(node.right == null) return node.left;
 		node.right = removeLast(node.right);
+		if(height(node.left) - height(node.right) < -1){
+			//Rotacions
+		}
 		return node;
 	}
 	
@@ -144,7 +154,6 @@ public class AVLTree extends BTree {
 				Scanner scanner = new Scanner(line.replaceAll("[^a-z^A-Z\\s]", "").toLowerCase());
 				while(scanner.hasNext()){
 					add(new Word(scanner.next()));
-					size++;
 				}
 				scanner.close();
 			}

@@ -21,7 +21,7 @@ public class SearchTree extends BTree {
 			tree.getElement().increaseValue();
 		}
 		else{
-			((NodeSearch) tree).add(e);
+			size += ((NodeSearch) tree).add(e);
 		}
 	}
 

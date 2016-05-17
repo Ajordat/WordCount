@@ -6,6 +6,7 @@ import java.lang.management.ThreadMXBean;
 
 import tad.AVLTree;
 import tad.SearchTree;
+import tad.AVLTable;
 
 public class Main {
 	private static String fileName = "";
@@ -13,19 +14,10 @@ public class Main {
 	private static int method = 0;
 	private static SearchTree searchTree = new SearchTree();
 	private static AVLTree avlTree = new AVLTree();
+	private static AVLTable avlTable = new AVLTable();
 	
 	public static void main(String[] args) {
 		int option, optionResults;
-		avlTree = new AVLTree();
-		avlTree.loadTest();
-		avlTree.printInOrder();
-		System.out.println();
-		avlTree.remove("A");
-		avlTree.remove("R");
-		avlTree.remove("K");
-		avlTree.remove("D");
-		avlTree.remove("A");
-		avlTree.printInOrder();
 		while(!exit){
 			Menu.printMain();
 			option = Menu.getOption();
@@ -55,6 +47,7 @@ public class Main {
 							searchTree.clear();
 							searchTree.loadFile(fileName);
 							System.out.println("first element: "+searchTree.first());
+							System.out.println("top element: "+searchTree.top());
 							System.out.println("last element: "+searchTree.last());
 							System.out.println("height: "+searchTree.height());
 							System.out.println("size: "+searchTree.size());
@@ -64,9 +57,21 @@ public class Main {
 							avlTree.clear();
 							avlTree.loadFile(fileName);
 							System.out.println("first element: "+avlTree.first());
+							System.out.println("top element: "+avlTree.top());
 							System.out.println("last element: "+avlTree.last());
 							System.out.println("height: " +avlTree.height());
 							System.out.println("size: "+avlTree.size());
+							break;
+						case Menu.AVL_TABLE:
+							method = Menu.AVL_TABLE;
+							avlTable.clear();
+							avlTable.loadFile(fileName);
+
+							System.out.println("first element: "+avlTable.first());
+							System.out.println("last element: "+avlTable.last());
+							System.out.println("height: " +avlTable.avgHeight());
+							System.out.println("size: "+avlTable.size());
+							
 							break;
 					}
 					System.out.println("memory init: "+tm.getHeapMemoryUsage().getInit());
