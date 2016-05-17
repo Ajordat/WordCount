@@ -100,13 +100,7 @@ public abstract class Table {
 	}
 	
 	public void clear(){
-		/*
-		for(BTree t : table){
-			t.clear();
-		}
-		*/
 		for(int i = 0;i<N;i++){
-			System.out.println(i);
 			table[i].clear();
 		}
 	}

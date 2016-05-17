@@ -36,7 +36,7 @@ public class Menu {
 		System.out.println("2. AVL tree");
 		System.out.println("3. AVL Table");
 		//System.out.println("4. ");
-		System.out.println("------------------------------------");
+		System.out.println("-------------------------------------");
 	}
 	
 	public static void printViewResults(){

@@ -1,11 +1,14 @@
 package tad;
 
 public class AVLTable extends Table{
+
+	//protected AVLTree[] table;
+	protected static final int N = 'Z'-'A'+1;
 	
 	public AVLTable(){
 		table = new AVLTree[N];
-		for(BTree t : table){
-			t = new AVLTree();
+		for(int i = 0;i<N;i++){
+			table[i] = new AVLTree();
 		}
 	}
 	
