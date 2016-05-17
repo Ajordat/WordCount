@@ -41,7 +41,9 @@ public class Main {
 					
 					long inici = System.nanoTime();
 					long timeCPU = th.getCurrentThreadCpuTime();
+					
 					switch(opt){
+					
 						case Menu.SEARCH_TREE:
 							method = Menu.SEARCH_TREE;
 							searchTree.clear();
@@ -52,6 +54,7 @@ public class Main {
 							System.out.println("height: "+searchTree.height());
 							System.out.println("size: "+searchTree.size());
 							break;
+							
 						case Menu.AVL_TREE:
 							method = Menu.AVL_TREE;
 							avlTree.clear();
@@ -62,18 +65,19 @@ public class Main {
 							System.out.println("height: " +avlTree.height());
 							System.out.println("size: "+avlTree.size());
 							break;
+							
 						case Menu.AVL_TABLE:
 							method = Menu.AVL_TABLE;
 							avlTable.clear();
 							avlTable.loadFile(fileName);
-
 							System.out.println("first element: "+avlTable.first());
 							System.out.println("last element: "+avlTable.last());
 							System.out.println("height: " +avlTable.avgHeight());
 							System.out.println("size: "+avlTable.size());
-							
 							break;
+							
 					}
+					
 					System.out.println("memory init: "+tm.getHeapMemoryUsage().getInit());
 					System.out.println("memory used: "+tm.getHeapMemoryUsage().getUsed());
 					System.out.println("memory max: "+tm.getHeapMemoryUsage().getMax());
