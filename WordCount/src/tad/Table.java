@@ -16,7 +16,7 @@ public abstract class Table {
 	public abstract int hash(String key);
 	
 	public void add(Element e){
-		table[hash(e)].add(e);
+		table[hash(e)].addWord(e);
 	}
 	
 	public int size(){

@@ -31,7 +31,7 @@ public class Word extends Element{
 	
 	@Override
 	public String toString(){
-		return word + " " + value;
+		return word + " " + value+"\n";
 	}
 
 	@Override
@@ -42,6 +42,10 @@ public class Word extends Element{
 	@Override
 	public int compareTo(String key) {
 		return word.compareToIgnoreCase(key);
+	}
+	
+	public int compareTo(int key) {
+		return Integer.compare(value, key);
 	}
 
 	@Override

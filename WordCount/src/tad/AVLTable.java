@@ -21,7 +21,7 @@ public class AVLTable extends Table{
 	}
 	
 	public void add(Element e){
-		table[hash(e)].add(e);
+		table[hash(e)].addWord(e);
 	}
 	
 	public void remove(String key){

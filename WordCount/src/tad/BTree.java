@@ -11,7 +11,7 @@ public abstract class BTree {
 	protected int size = 0;
 	
 	public abstract Element getValue(String key);
-	public abstract void add(Element e);
+	public abstract void addWord(Element e);
 	
 	public void printPreOrder(){
 		if(tree != null) tree.printPreOrder();
@@ -67,15 +67,15 @@ public abstract class BTree {
 	}
 	
 	public void loadTest(){
-		add(new Word("M"));add(new Word("F"));add(new Word("C"));
-		add(new Word("U"));add(new Word("V"));add(new Word("O"));
-		add(new Word("Y"));add(new Word("A"));add(new Word("G"));
-		add(new Word("P"));add(new Word("K"));add(new Word("W"));
-		add(new Word("B"));add(new Word("D"));add(new Word("E"));
-		add(new Word("H"));add(new Word("I"));add(new Word("J"));
-		add(new Word("L"));add(new Word("N"));add(new Word("Z"));
-		add(new Word("Q"));add(new Word("R"));add(new Word("S"));
-		add(new Word("T"));add(new Word("X"));
+		addWord(new Word("M"));addWord(new Word("F"));addWord(new Word("C"));
+		addWord(new Word("U"));addWord(new Word("V"));addWord(new Word("O"));
+		addWord(new Word("Y"));addWord(new Word("A"));addWord(new Word("G"));
+		addWord(new Word("P"));addWord(new Word("K"));addWord(new Word("W"));
+		addWord(new Word("B"));addWord(new Word("D"));addWord(new Word("E"));
+		addWord(new Word("H"));addWord(new Word("I"));addWord(new Word("J"));
+		addWord(new Word("L"));addWord(new Word("N"));addWord(new Word("Z"));
+		addWord(new Word("Q"));addWord(new Word("R"));addWord(new Word("S"));
+		addWord(new Word("T"));addWord(new Word("X"));
 	}
 
 	public void loadFile(String fileName){
@@ -85,7 +85,7 @@ public abstract class BTree {
 				String line = file.nextLine();
 				Scanner scanner = new Scanner(line.replaceAll("[^a-z^A-Z\\s]", "").toLowerCase());
 				while(scanner.hasNext()){
-					add(new Word(scanner.next()));
+					addWord(new Word(scanner.next()));
 				}
 				scanner.close();
 			}

@@ -49,7 +49,7 @@ public class AVLTree extends BTree {
 	}
 
 	@Override
-	public void add(Element e) {
+	public void addWord(Element e) {
 		if(tree == null){
 			tree = new NodeB(e);
 			tree.e.increaseValue();
@@ -153,7 +153,7 @@ public class AVLTree extends BTree {
 				String line = file.nextLine();
 				Scanner scanner = new Scanner(line.replaceAll("[^a-z^A-Z\\s]", "").toLowerCase());
 				while(scanner.hasNext()){
-					add(new Word(scanner.next()));
+					addWord(new Word(scanner.next()));
 				}
 				scanner.close();
 			}

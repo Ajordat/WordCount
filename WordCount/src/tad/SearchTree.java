@@ -15,18 +15,38 @@ public class SearchTree extends BTree {
 		tree = new NodeSearch(e);
 	}
 	
-	public void add(Element e){
+	public void addWord(Element e){
 		if(tree == null){
 			tree = new NodeSearch(e);
 			tree.getElement().increaseValue();
 		}
 		else{
-			size += ((NodeSearch) tree).add(e);
+			size += ((NodeSearch) tree).addWord(e);
 		}
 	}
-
+	
+	public void addValue(Element e){
+		if(tree == null){
+			tree = new NodeSearch(e);
+			tree.getElement().increaseValue();
+		}
+		else{
+			size += ((NodeSearch) tree).addValue(e);
+		}
+	}
+	
 	public Element getValue(String key){
 		return tree.getValue(key);
+	}
+	
+	public void copia(SearchTree t){
+		if(tree.left != null) extreu(t,tree);
+	}
+	
+	private void extreu (SearchTree t, NodeB node){
+		if(node.left != null) extreu(t, node.left);
+		t.addValue(node.e);
+		if(node.right != null) extreu(t, node.right);
 	}
 	
 }
