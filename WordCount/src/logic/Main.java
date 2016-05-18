@@ -1,7 +1,6 @@
 package logic;
 
 import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryMXBean;
 import java.lang.management.ThreadMXBean;
 
 import tad.AVLTree;
@@ -112,7 +111,7 @@ public class Main {
 								System.out.println("last element: "+prova.last());
 								System.out.println("height: "+prova.height());
 								System.out.println("size: "+prova.size());
-								prova.printInOrder();
+								//prova.printInOrder();
 							}
 							else{
 								System.out.println("first element: "+searchTree.first());
@@ -120,7 +119,7 @@ public class Main {
 								System.out.println("last element: "+searchTree.last());
 								System.out.println("height: "+searchTree.height());
 								System.out.println("size: "+searchTree.size());
-								searchTree.printInOrder();
+								//searchTree.printInOrder();
 							}
 							System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 							System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
@@ -128,15 +127,30 @@ public class Main {
 							
 						case Menu.AVL_TREE:
 							avlTree.clear();
+							ThreadMXBean th1 = ManagementFactory.getThreadMXBean();
+							long inici1 = System.nanoTime();
+							long timeCPU1 = th1.getCurrentThreadCpuTime();
 							avlTree.loadFile(fileName);
 							if(optionResults == Menu.NUMBER_OF_APPEARANCES){
+								AVLTree prova = new AVLTree();
+								avlTree.copia(prova);
+								System.out.println("first element: "+prova.first());
+								System.out.println("top element: "+prova.top());
+								System.out.println("last element: "+prova.last());
+								System.out.println("height: "+prova.height());
+								System.out.println("size: "+prova.size());
+								prova.printInOrder();
 								//VOLQUEM EL CONTINGUT DE L'AVL A L'ALTRE AVL ON S'ORDENA PER QUANTITAT D'APARICIONS 
+							}else{
+								System.out.println("first element: "+avlTree.first());
+								System.out.println("top element: "+avlTree.top());
+								System.out.println("last element: "+avlTree.last());
+								System.out.println("height: " +avlTree.height());
+								System.out.println("size: "+avlTree.size());
+								avlTree.printInOrder();
 							}
-							System.out.println("first element: "+avlTree.first());
-							System.out.println("top element: "+avlTree.top());
-							System.out.println("last element: "+avlTree.last());
-							System.out.println("height: " +avlTree.height());
-							System.out.println("size: "+avlTree.size());
+							System.out.println("Temps real = " + (System.nanoTime()-inici1)/1000000);
+							System.out.println("Temps CPU = " + (th1.getCurrentThreadCpuTime()-timeCPU1)/1000000);
 							break;
 							
 						case Menu.AVL_TABLE:

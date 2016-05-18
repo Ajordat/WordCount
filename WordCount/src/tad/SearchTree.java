@@ -40,7 +40,7 @@ public class SearchTree extends BTree {
 	}
 	
 	public void copia(SearchTree t){
-		if(tree.left != null) extreu(t,tree);
+		if(tree != null) extreu(t,tree);
 	}
 	
 	private void extreu (SearchTree t, NodeB node){
