@@ -1,6 +1,6 @@
 package tad;
 
-public class SearchTree extends BTree {
+public class SearchTree extends BinaryTree {
 	
 	public SearchTree(){
 		tree = null;

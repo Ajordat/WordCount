@@ -52,6 +52,7 @@ public class Word extends Element{
 	public void increaseValue() {
 		value++;
 	}
+	
 	@Override
 	public void increaseValue(int inc) {
 		value += inc;

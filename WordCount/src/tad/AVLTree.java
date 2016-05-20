@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import logic.Word;
 
-public class AVLTree extends BTree {
+public class AVLTree extends BinaryTree {
 
 	public AVLTree(){
 		tree = null;

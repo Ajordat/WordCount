@@ -8,7 +8,7 @@ import logic.Word;
 
 public abstract class Table {
 	
-	protected BTree[] table;
+	protected BinaryTree[] table;
 	protected static final int N = 'Z'-'A';
 	
 	public abstract int hash(Element e);
@@ -21,7 +21,7 @@ public abstract class Table {
 	
 	public int size(){
 		int size = 0;
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			size+=t.size();
 		}		
 		return size;
@@ -34,7 +34,7 @@ public abstract class Table {
 	
 	public int avgHeight(){
 		int sum = 0;
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			sum+=t.height();
 		}
 		return sum/N;
@@ -76,14 +76,14 @@ public abstract class Table {
 	}
 	
 	public void printPreOrder(){
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			t.printPreOrder();
 		}
 	}
 	
 	public Element first(){
 		Element e;
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			e = t.first();
 			if(e!=null) return e;
 		}
@@ -106,13 +106,13 @@ public abstract class Table {
 	}
 	
 	public void printInOrder(){
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			t.printInOrder();
 		}
 	}
 	
 	public void printPostOrder(){
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			t.printPostOrder();
 		}
 	}

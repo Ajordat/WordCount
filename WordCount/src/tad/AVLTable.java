@@ -2,7 +2,6 @@ package tad;
 
 public class AVLTable extends Table{
 
-	//protected AVLTree[] table;
 	protected static final int N = 'Z'-'A'+1;
 	
 	public AVLTable(){
@@ -34,7 +33,7 @@ public class AVLTable extends Table{
 	
 	public int avgHeight(){
 		int sum = 0;
-		for(BTree t : table){
+		for(BinaryTree t : table){
 			sum+=t.height();
 		}
 		return sum/N;

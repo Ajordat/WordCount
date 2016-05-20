@@ -16,6 +16,7 @@ public class Menu {
 	public static final int SEARCH_TREE = 1;
 	public static final int AVL_TREE = 2;
 	public static final int AVL_TABLE = 3;
+	public static final int SORTED_LIST = 4;
 	
 	/** VIEW_RESULTS MENU CONSTANTS **/
 	public static final int NUMBER_OF_APPEARANCES = 1;
@@ -32,10 +33,10 @@ public class Menu {
 	
 	public static void printCalculateAppearances(){
 		System.out.println("------- Calculate appearances -------");
-		System.out.println("1. Search tree");
-		System.out.println("2. AVL tree");
+		System.out.println("1. Search Tree");
+		System.out.println("2. AVL Tree");
 		System.out.println("3. AVL Table");
-		//System.out.println("4. ");
+		System.out.println("4. Sorted List");
 		System.out.println("-------------------------------------");
 	}
 	

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import logic.Word;
 
-public abstract class BTree {
+public abstract class BinaryTree {
 	protected NodeB tree;
 	protected int size = 0;
 	
