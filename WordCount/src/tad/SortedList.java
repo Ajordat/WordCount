@@ -9,12 +9,12 @@ import logic.Word;
 /**
  * Implementa una llista dinamica destudiants.
  */
-public class DynamicList {
+public class SortedList {
 	private Node first;
 	private Node previous;
 	private int size;
 
-	public DynamicList() {
+	public SortedList() {
 		first = new Node();
 		previous = first;
 		size = 0;
@@ -53,10 +53,9 @@ public class DynamicList {
 	public void addValue(Element e){
 		Node n = new Node();
 		previous = first;
-		while(previous.getNext() != null && previous.getNext().getElement().compareTo(((Word)e).getValue()) < 0){
+		while(previous.getNext() != null && previous.getNext().getElement().compareTo(((Word)e).getValue()) >= 0){
 			previous = previous.getNext();
 		}
-		e.increaseValue();
 		n.setElement(e);
 		n.setNext(previous.getNext());
 		previous.setNext(n);
@@ -145,7 +144,7 @@ public class DynamicList {
 		}
 	}
 	
-	public void copia(DynamicList l){
+	public void copia(SortedList l){
 		Element e;
 		if(first != null){
 			previous = first;

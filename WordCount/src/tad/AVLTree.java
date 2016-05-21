@@ -75,7 +75,7 @@ public class AVLTree extends BinaryTree {
 	private NodeB addValue(NodeB node, Element element){
 		System.out.print(element);
 		System.out.print(node.e);
-		if(element.compareTo(((Word)node.e).getValue()) < 0){
+		if(element.compareTo(((Word)node.e).getValue()) > 0){
 			System.out.println("-1\n");
 			if(node.left == null){
 				node.left = new NodeB(element);
@@ -92,7 +92,7 @@ public class AVLTree extends BinaryTree {
 				}
 			}
 		}
-		else if(element.compareTo(((Word)node.e).getValue()) >= 0){
+		else if(element.compareTo(((Word)node.e).getValue()) <= 0){
 			System.out.println("1\n");
 			if(node.right == null){
 				node.right = new NodeB(element);

@@ -22,7 +22,7 @@ public class Menu {
 	public static final int NUMBER_OF_APPEARANCES = 1;
 	public static final int APHABETICALLY = 2;
 	
-	public static void printMain(){
+	public void printMain(){
 		System.out.println("------- Word Counter -------");
 		System.out.println("1. Select file");
 		System.out.println("2. Calculate appearances");
@@ -31,7 +31,7 @@ public class Menu {
 		System.out.println("----------------------------");
 	}
 	
-	public static void printCalculateAppearances(){
+	public void printCalculateAppearances(){
 		System.out.println("------- Calculate appearances -------");
 		System.out.println("1. Search Tree");
 		System.out.println("2. AVL Tree");
@@ -40,14 +40,14 @@ public class Menu {
 		System.out.println("-------------------------------------");
 	}
 	
-	public static void printViewResults(){
+	public void printViewResults(){
 		System.out.println("------- View results -------");
 		System.out.println("1. Sort by number of appearances");
 		System.out.println("2. Sort alphabetically");
 		System.out.println("----------------------------");
 	}
 	
-	public static int getOption(){
+	public int getOption(){
 		@SuppressWarnings("resource")
 		Scanner scr = new Scanner(System.in);
 		System.out.print("Option: ");
@@ -60,7 +60,7 @@ public class Menu {
 		return option;
 	}
 	
-	public static String getFile(){
+	public String getFile(){
 		@SuppressWarnings("resource")
 		Scanner scr = new Scanner(System.in);
 		System.out.print("File: ");
@@ -74,6 +74,54 @@ public class Menu {
 		}
 		file.close();
 		return fileName;
+	}
+	
+	public void testSearchTree(int option, String fileName){
+		
+		switch(option){
+			case Menu.NUMBER_OF_APPEARANCES:
+				Test.testSearchTreeNumber(fileName);
+				break;
+			case Menu.APHABETICALLY:
+				Test.testSearchTreeAlpha(fileName);
+				break;
+		}
+		
+	}
+	
+	public void testAVLTree(int option, String fileName){
+		
+		switch(option){
+			case Menu.NUMBER_OF_APPEARANCES:
+				Test.testAVLTreeNumber(fileName);
+				break;
+			case Menu.APHABETICALLY:
+				Test.testAVLTreeAlpha(fileName);
+				break;
+		}
+		
+	}
+	
+	public void testAVLTable(int option, String fileName){
+		switch(option){
+			case Menu.NUMBER_OF_APPEARANCES:
+				Test.testAVLTreeNumber(fileName);
+				break;
+			case Menu.APHABETICALLY:
+				Test.testAVLTableAlpha(fileName);
+				break;
+		}
+	}
+	
+	public void testSortedList(int option, String fileName){
+		switch(option){
+			case Menu.NUMBER_OF_APPEARANCES:
+				Test.testSortedListNumber(fileName);
+				break;
+			case Menu.APHABETICALLY:
+				Test.testSortedListAlpha(fileName);
+				break;
+		}
 	}
 	
 }
