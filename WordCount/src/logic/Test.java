@@ -11,140 +11,158 @@ import tad.SortedList;
 public class Test {
 	
 	public static void testSearchTreeAlpha(String fileName){
-		SearchTree searchTree = new SearchTree();
+		SearchTree searchTreeAlpha = new SearchTree();
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		searchTree.loadFile(fileName);
+		searchTreeAlpha.loadFile(fileName);
 		
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.print("first element: "+searchTree.first());
-		System.out.print("last element: "+searchTree.last());
-		System.out.println("height: "+searchTree.height()+"\n");
+		System.out.print("first element: "+searchTreeAlpha.first());
+		System.out.print("last element: "+searchTreeAlpha.last());
+		System.out.println("height: "+searchTreeAlpha.height()+"\n");
 	}
 	
 	public static void testSearchTreeNumber(String fileName){
-		SearchTree searchTree = new SearchTree();
+		SearchTree searchTreeAlpha = new SearchTree();
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		searchTree.loadFile(fileName);
-		SearchTree prova = new SearchTree();
-		searchTree.copia(prova);
+		searchTreeAlpha.loadFile(fileName);
+		SearchTree searchTreeNumber = new SearchTree();
+		searchTreeAlpha.copia(searchTreeNumber);
 		
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.print("first element: "+prova.first());
-		System.out.print("last element: "+prova.last());
-		System.out.println("height: "+prova.height()+"\n");
+		System.out.print("first element: "+searchTreeNumber.first());
+		System.out.print("last element: "+searchTreeNumber.last());
+		System.out.println("height: "+searchTreeNumber.height()+"\n");
 	}
 	
 	public static void testAVLTreeAlpha(String fileName){
-		AVLTree avlTree = new AVLTree();
+		AVLTree avlTreeAlpha = new AVLTree();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		avlTree.loadFile(fileName);
+		avlTreeAlpha.loadFile(fileName);
 		
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.println("first element: "+avlTree.first());
-		System.out.println("top element: "+avlTree.top());
-		System.out.println("last element: "+avlTree.last());
-		System.out.println("height: " +avlTree.height());
+		System.out.println("first element: "+avlTreeAlpha.first());
+		System.out.println("top element: "+avlTreeAlpha.top());
+		System.out.println("last element: "+avlTreeAlpha.last());
+		System.out.println("height: " +avlTreeAlpha.height());
 	
 	}
 	
 	public static void testAVLTreeNumber(String fileName){
-		AVLTree avlTree = new AVLTree();
+		AVLTree avlTreeAlpha = new AVLTree();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		avlTree.loadFile(fileName);
+		avlTreeAlpha.loadFile(fileName);
 		
-		AVLTree prova = new AVLTree();
-		avlTree.copia(prova);
+		AVLTree avlTreeNumber = new AVLTree();
+		avlTreeAlpha.copia(avlTreeNumber);
 			
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.println("first element: "+prova.first());
-		System.out.println("top element: "+prova.top());
-		System.out.println("last element: "+prova.last());
-		System.out.println("height: "+prova.height());
-		System.out.println("size: "+prova.size());
+		System.out.println("first element: "+avlTreeNumber.first());
+		System.out.println("top element: "+avlTreeNumber.top());
+		System.out.println("last element: "+avlTreeNumber.last());
+		System.out.println("height: "+avlTreeNumber.height());
+		System.out.println("size: "+avlTreeNumber.size());
 		
 	}
 	
 	public static void testAVLTableAlpha(String fileName){
-		AVLTable avlTable = new AVLTable();
+		AVLTable avlTableAlpha = new AVLTable();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		avlTable.loadFile(fileName);
+		avlTableAlpha.loadFile(fileName);
 		
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.println("first element: "+avlTable.first());
-		System.out.println("last element: "+avlTable.last());
-		System.out.println("height: " +avlTable.avgHeight());
-		System.out.println("size: "+avlTable.size());
+		System.out.println("first element: "+avlTableAlpha.first());
+		System.out.println("last element: "+avlTableAlpha.last());
+		System.out.println("height: " +avlTableAlpha.avgHeight());
+		System.out.println("size: "+avlTableAlpha.size());
 		
 	}
 	
 	public static void testAVLTableNumber(String fileName){
-		return;
-	}
-	
-	public static void testSortedListAlpha(String fileName){
-		SortedList sList = new SortedList();
+		AVLTable avlTableAlpha = new AVLTable();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		sList.loadFile(fileName);
+		avlTableAlpha.loadFile(fileName);
+		
+		AVLTree avlTableNumber = new AVLTree();
+		avlTableAlpha.copia(avlTableNumber);
 		
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.println("first element: "+sList.first());
-		System.out.println("last element: "+sList.last());
-		System.out.println("size: "+sList.size());
+		System.out.println("first element: "+avlTableNumber.first());
+		System.out.println("top element: "+avlTableNumber.top());
+		System.out.println("last element: "+avlTableNumber.last());
+		System.out.println("height: "+avlTableNumber.height());
+		System.out.println("size: "+avlTableNumber.size());
+	}
+	
+	public static void testSortedListAlpha(String fileName){
+		SortedList sListAlpha = new SortedList();
+		
+		ThreadMXBean th = ManagementFactory.getThreadMXBean();
+		long inici = System.nanoTime();
+		long timeCPU = th.getCurrentThreadCpuTime();
+		
+		sListAlpha.loadFile(fileName);
+		
+		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
+		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		
+		System.out.println("first element: "+sListAlpha.first());
+		System.out.println("last element: "+sListAlpha.last());
+		System.out.println("size: "+sListAlpha.size());
 		
 	}
 	
 	public static void testSortedListNumber(String fileName){
-		SortedList sList = new SortedList();
+		SortedList sListAlpha = new SortedList();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		long inici = System.nanoTime();
 		long timeCPU = th.getCurrentThreadCpuTime();
 		
-		sList.loadFile(fileName);
+		sListAlpha.loadFile(fileName);
 		
-		SortedList aux = new SortedList();
-		sList.copia(aux);
+		SortedList sListNumber = new SortedList();
+		sListAlpha.copia(sListNumber);
 		
 		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
 		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
-		System.out.println("first element: "+aux.first());
-		System.out.println("last element: "+aux.last());
-		System.out.println("size: "+aux.size());
+		System.out.println("first element: "+sListNumber.first());
+		System.out.println("last element: "+sListNumber.last());
+		System.out.println("size: "+sListNumber.size());
 	}
 
 }

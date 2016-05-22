@@ -61,7 +61,6 @@ public class AVLTree extends BinaryTree {
 	public void addValue(Element e) {
 		if(tree == null){
 			tree = new NodeB(e);
-			tree.e.increaseValue();
 			size++;
 		}
 		else tree = addValue(tree, e);
@@ -73,10 +72,7 @@ public class AVLTree extends BinaryTree {
 	}
 	
 	private NodeB addValue(NodeB node, Element element){
-		System.out.print(element);
-		System.out.print(node.e);
 		if(element.compareTo(((Word)node.e).getValue()) > 0){
-			System.out.println("-1\n");
 			if(node.left == null){
 				node.left = new NodeB(element);
 				size++;
@@ -85,7 +81,7 @@ public class AVLTree extends BinaryTree {
 				node.left = addValue(node.left, element);
 			}
 			if(height(node.left) - height(node.right) > 1){
-				if(element.compareTo(((Word)node.left.e).getValue()) < 0){
+				if(element.compareTo(((Word)node.left.e).getValue()) > 0){
 					node = rotationLL(node);
 				}else{
 					node = rotationLR(node);
@@ -93,7 +89,6 @@ public class AVLTree extends BinaryTree {
 			}
 		}
 		else if(element.compareTo(((Word)node.e).getValue()) <= 0){
-			System.out.println("1\n");
 			if(node.right == null){
 				node.right = new NodeB(element);
 				size++;
@@ -102,7 +97,7 @@ public class AVLTree extends BinaryTree {
 				node.right = addValue(node.right, element);
 			}
 			if(height(node.left) - height(node.right) < -1){
-				if(element.compareTo(((Word)node.right.e).getValue()) > 0){
+				if(element.compareTo(((Word)node.right.e).getValue()) <= 0){
 					node = rotationRR(node);
 				}else{
 					node = rotationRL(node);

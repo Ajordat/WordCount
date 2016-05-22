@@ -1,8 +1,6 @@
 package tad;
 
 public class AVLTable extends Table{
-
-	protected static final int N = 'Z'-'A'+1;
 	
 	public AVLTable(){
 		table = new AVLTree[N];
@@ -26,21 +24,11 @@ public class AVLTable extends Table{
 	public void remove(String key){
 		((AVLTree) table[hash(key)]).remove(key);
 	}
-	
-	public int heigh(String key){
-		return table[hash(key)].height();
-	}
-	
-	public int avgHeight(){
-		int sum = 0;
-		for(BinaryTree t : table){
-			sum+=t.height();
+
+	public void copia(AVLTree prova) {
+		for(BinaryTree t: table){
+			((AVLTree) t).copia(prova);
 		}
-		return sum/N;
-	}
-	
-	public Element getValue(String key){
-		return table[hash(key)].getValue(key);
 	}
 	
 }

@@ -9,7 +9,7 @@ import logic.Word;
 public abstract class Table {
 	
 	protected BinaryTree[] table;
-	protected static final int N = 'Z'-'A';
+	protected static final int N = 'Z'-'A'+1;
 	
 	public abstract int hash(Element e);
 	
@@ -26,6 +26,7 @@ public abstract class Table {
 		}		
 		return size;
 	}
+	
 	public abstract void remove(String key);
 	
 	public int heigh(String key){
@@ -92,7 +93,7 @@ public abstract class Table {
 	
 	public Element last(){
 		Element e;
-		for(int i = N;i>=0;i--){
+		for(int i = N-1;i>=0;i--){
 			e = table[i].last();
 			if(e!=null) return e;
 		}

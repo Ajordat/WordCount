@@ -52,6 +52,8 @@ public class Main {
 						case Menu.SORTED_LIST:
 							menu.testSortedList(optionResults, fileName);
 							break;
+						default:
+							System.out.println("Si arribes a aquesta opció, convalida PAED.");
 					}
 					break;
 					
