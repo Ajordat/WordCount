@@ -6,11 +6,13 @@ public class NodeB {
 	protected NodeB left;
 	protected NodeB right;
 	protected Element e;
+	protected int height;
 	
 	public NodeB(Element e){
 		this.e = e;
 		left = null;
 		right = null;
+		height = 1;
 	}
 	
 	public Element getElement() {
@@ -34,10 +36,13 @@ public class NodeB {
 	}
 	
 	public int height(){
+		/*
 		if(left == null && right == null) return 1;
 		if(left == null) return right.height()+1;
 		if(right == null) return left.height()+1;
 		return Math.max(left.height(), right.height())+1;
+		*/
+		return height;
 	}
 	
 	public void printPreOrder(){

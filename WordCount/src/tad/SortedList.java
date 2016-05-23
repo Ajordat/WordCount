@@ -91,6 +91,10 @@ public class SortedList {
 		first.setNext(null);
 		previous = first;
 	}
+	
+	public void next(){
+		if(previous.getNext() != null) previous = previous.getNext();
+	}
 
 	/**
 	 * Situa el PDI a l'inici de la llista.

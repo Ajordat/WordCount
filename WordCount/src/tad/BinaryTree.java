@@ -2,6 +2,7 @@ package tad;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import logic.Word;
@@ -95,5 +96,15 @@ public abstract class BinaryTree {
 		} catch (NullPointerException e){
 			e.printStackTrace();
 		}
+	}
+	
+	public void toHtml(PrintWriter printw){
+		if(tree != null) toHtml(printw, tree);
+	}
+	
+	private void toHtml(PrintWriter printw, NodeB node){
+		if(node.left != null) toHtml(printw, node.left);
+		printw.println("<tr align=center><td>"+((Word)node.e).getWord()+"</td><td>"+((Word)node.e).getValue()+"</td></tr>");
+		if(node.right != null) toHtml(printw, node.right);
 	}
 }

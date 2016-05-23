@@ -1,6 +1,7 @@
 package logic;
 
 import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
 import java.lang.management.ThreadMXBean;
 
 import tad.AVLTable;
@@ -12,15 +13,19 @@ public class Test {
 	
 	public static void testSearchTreeAlpha(String fileName){
 		SearchTree searchTreeAlpha = new SearchTree();
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+		
 		long timeCPU = th.getCurrentThreadCpuTime();
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		
 		searchTreeAlpha.loadFile(fileName);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
 		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
+			
 		System.out.print("first element: "+searchTreeAlpha.first());
 		System.out.print("last element: "+searchTreeAlpha.last());
 		System.out.println("height: "+searchTreeAlpha.height()+"\n");
@@ -28,16 +33,20 @@ public class Test {
 	
 	public static void testSearchTreeNumber(String fileName){
 		SearchTree searchTreeAlpha = new SearchTree();
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+		
 		long timeCPU = th.getCurrentThreadCpuTime();
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		
 		searchTreeAlpha.loadFile(fileName);
 		SearchTree searchTreeNumber = new SearchTree();
 		searchTreeAlpha.copia(searchTreeNumber);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeNumber);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.print("first element: "+searchTreeNumber.first());
 		System.out.print("last element: "+searchTreeNumber.last());
@@ -48,13 +57,15 @@ public class Test {
 		AVLTree avlTreeAlpha = new AVLTree();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
-		long timeCPU = th.getCurrentThreadCpuTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 		
+		long timeCPU = th.getCurrentThreadCpuTime();
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		avlTreeAlpha.loadFile(fileName);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTreeAlpha);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.println("first element: "+avlTreeAlpha.first());
 		System.out.println("top element: "+avlTreeAlpha.top());
@@ -67,16 +78,18 @@ public class Test {
 		AVLTree avlTreeAlpha = new AVLTree();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+
 		long timeCPU = th.getCurrentThreadCpuTime();
-		
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		avlTreeAlpha.loadFile(fileName);
 		
 		AVLTree avlTreeNumber = new AVLTree();
 		avlTreeAlpha.copia(avlTreeNumber);
-			
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTreeNumber);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.println("first element: "+avlTreeNumber.first());
 		System.out.println("top element: "+avlTreeNumber.top());
@@ -90,13 +103,16 @@ public class Test {
 		AVLTable avlTableAlpha = new AVLTable();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+
 		long timeCPU = th.getCurrentThreadCpuTime();
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		
 		avlTableAlpha.loadFile(fileName);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTableAlpha);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.println("first element: "+avlTableAlpha.first());
 		System.out.println("last element: "+avlTableAlpha.last());
@@ -109,16 +125,18 @@ public class Test {
 		AVLTable avlTableAlpha = new AVLTable();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+
 		long timeCPU = th.getCurrentThreadCpuTime();
-		
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		avlTableAlpha.loadFile(fileName);
 		
 		AVLTree avlTableNumber = new AVLTree();
 		avlTableAlpha.copia(avlTableNumber);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTableNumber);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.println("first element: "+avlTableNumber.first());
 		System.out.println("top element: "+avlTableNumber.top());
@@ -131,13 +149,15 @@ public class Test {
 		SortedList sListAlpha = new SortedList();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+
 		long timeCPU = th.getCurrentThreadCpuTime();
-		
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		sListAlpha.loadFile(fileName);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, sListAlpha);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.println("first element: "+sListAlpha.first());
 		System.out.println("last element: "+sListAlpha.last());
@@ -149,16 +169,19 @@ public class Test {
 		SortedList sListAlpha = new SortedList();
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
-		long inici = System.nanoTime();
+		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
+		
 		long timeCPU = th.getCurrentThreadCpuTime();
+		long memory = tm.getHeapMemoryUsage().getUsed();
 		
 		sListAlpha.loadFile(fileName);
 		
 		SortedList sListNumber = new SortedList();
 		sListAlpha.copia(sListNumber);
 		
-		System.out.println("Temps real = " + (System.nanoTime()-inici)/1000000);
-		System.out.println("Temps CPU = " + (th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, sListNumber);
+		
+		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
 		System.out.println("first element: "+sListNumber.first());
 		System.out.println("last element: "+sListNumber.last());

@@ -2,6 +2,7 @@ package tad;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import logic.Word;
@@ -10,6 +11,10 @@ public abstract class Table {
 	
 	protected BinaryTree[] table;
 	protected static final int N = 'Z'-'A'+1;
+	
+	public BinaryTree[] getTable(){
+		return table;
+	}
 	
 	public abstract int hash(Element e);
 	
@@ -103,6 +108,12 @@ public abstract class Table {
 	public void clear(){
 		for(int i = 0;i<N;i++){
 			table[i].clear();
+		}
+	}
+	
+	public void toHtml(PrintWriter printw){
+		for(BinaryTree t : table){
+			t.toHtml(printw);
 		}
 	}
 	

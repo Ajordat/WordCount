@@ -2,6 +2,7 @@ package tad;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import logic.Word;
@@ -69,6 +70,7 @@ public class AVLTree extends BinaryTree {
 	public int height(NodeB node){
 		if(node == null) return 0;
 		return node.height();
+		//return node.height;
 	}
 	
 	private NodeB addValue(NodeB node, Element element){
@@ -143,9 +145,15 @@ public class AVLTree extends BinaryTree {
 			}
 		}
 		else node.e.increaseValue();
+		//node = updateHeight(node);
 		return node;
 	}
 	
+	private NodeB updateHeight(NodeB node) {
+		node.height = Math.max(height(node.left), height(node.right))+1;
+		return node;
+	}
+
 	public void remove(String key){
 		tree = remove(tree, key);
 	}
@@ -213,5 +221,5 @@ public class AVLTree extends BinaryTree {
 		t.addValue(node.e);
 		if(node.right != null) extreu(t, node.right);
 	}
-
+	
 }
