@@ -1,7 +1,7 @@
 # Directories #
 /build/
 /bin/
-/bin/.gitignore
+/WordCount/bin/.gitignore
 target/
  
 # OS Files #
