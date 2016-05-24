@@ -26,12 +26,12 @@ public class Html {
 	    
 	    printw.println("<h1 align=center><b><strong>Dades</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
-	    printw.println("<tr align=center><td>Temps</td><td>"+time+"</td></tr>");
+	    printw.println("<tr align=center><td> Temps </td><td> "+time+"ms </td></tr>");
 	    printw.println("</table>");
 	    
 	    printw.println("<h1 align=center><b><strong>Llistat de paraules</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
-	    printw.println("<tr align=center><td>Paraula</td><td>Aparicions</td></tr>");
+	    printw.println("<tr align=center><td>Id</td><td>Paraula</td><td>Aparicions</td></tr>");
 	    
 	    tree.toHtml(printw);
 	    
@@ -59,7 +59,7 @@ public class Html {
 	    
 	    printw.println("<h1 align=center><b><strong>Dades</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
-	    printw.println("<tr align=center><td>Temps</td><td>"+time+"</td></tr>");
+	    printw.println("<tr align=center><td> Temps </td><td> "+time+"ms </td></tr>");
 	    printw.println("</table>");
 	    
 	    printw.println("<h1 align=center><b><strong>Llistat de paraules</strong></b></h1>");
@@ -67,9 +67,11 @@ public class Html {
 	    printw.println("<tr align=center><td>Paraula</td><td>Aparicions</td></tr>");
 	    
 	    list.goFirst();
+	    int id = 1;
 	    while(!list.end()){
-	    	printw.println("<tr align=center><td>"+((Word)list.get()).getWord()+"</td><td>"+((Word)list.get()).getValue()+"</td></tr>");
+	    	printw.println("<tr align=center><td>"+id+"</td><td>"+((Word)list.get()).getWord()+"</td><td>"+((Word)list.get()).getValue()+"</td></tr>");
 	    	list.next();
+	    	id++;
 	    }
 	    
 	    printw.println("</table>");
@@ -96,12 +98,12 @@ public class Html {
 	    
 	    printw.println("<h1 align=center><b><strong>Dades</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
-	    printw.println("<tr align=center><td>Temps</td><td>"+time+"</td></tr>");
+	    printw.println("<tr align=center><td> Temps </td><td> "+time+"ms </td></tr>");
 	    printw.println("</table>");
 	    
 	    printw.println("<h1 align=center><b><strong>Llistat de paraules</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
-	    printw.println("<tr align=center><td>Paraula</td><td>Aparicions</td></tr>");
+	    printw.println("<tr align=center><td>Id</td><td>Paraula</td><td>Aparicions</td></tr>");
 	    
 	    t.toHtml(printw);
 	    

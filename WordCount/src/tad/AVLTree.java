@@ -68,7 +68,6 @@ public class AVLTree extends BinaryTree {
 	
 	public int height(NodeB node){
 		if(node == null) return 0;
-		//return node.height();
 		return node.height;
 	}
 	
@@ -88,8 +87,6 @@ public class AVLTree extends BinaryTree {
 					node = rotationLR(node);
 				}
 			}
-			//node.right = updateHeight(node.right);
-			//node.left = updateHeight(node.left);
 			node = updateHeight(node);
 		}
 		else if(element.compareTo(((Word)node.e).getValue()) <= 0){
@@ -107,13 +104,8 @@ public class AVLTree extends BinaryTree {
 					node = rotationRL(node);
 				}
 			}
-			//node.right = updateHeight(node.right);
-			//node.left = updateHeight(node.left);
 			node = updateHeight(node);
 		}
-		//node.right = updateHeight(node.right);
-		//node.left = updateHeight(node.left);
-		//node = updateHeight(node);
 		return node;
 	}
 	
@@ -134,8 +126,6 @@ public class AVLTree extends BinaryTree {
 					node = rotationLR(node);
 				}
 			}
-			//node.right = updateHeight(node.right);
-			//node.left = updateHeight(node.left);
 			node = updateHeight(node);
 		}
 		else if(element.compareTo(node.e) > 0){
@@ -154,14 +144,9 @@ public class AVLTree extends BinaryTree {
 					node = rotationRL(node);
 				}
 			}
-			//node.right = updateHeight(node.right);
-			//node.left = updateHeight(node.left);
 			node = updateHeight(node);
 		}
 		else node.e.increaseValue();
-		//node.right = updateHeight(node.right);
-		//node.left = updateHeight(node.left);
-		//node = updateHeight(node);
 		return node;
 	}
 	

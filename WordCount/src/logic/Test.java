@@ -14,6 +14,8 @@ public class Test {
 	public static void testSearchTreeAlpha(String fileName){
 		SearchTree searchTreeAlpha = new SearchTree();
 		
+		System.out.println("SEARCH TREE ALPHA");
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 		
@@ -22,7 +24,8 @@ public class Test {
 		
 		searchTreeAlpha.loadFile(fileName);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
+		//Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
+		System.out.println("time CPU: "+(th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 			
@@ -33,6 +36,8 @@ public class Test {
 	
 	public static void testSearchTreeNumber(String fileName){
 		SearchTree searchTreeAlpha = new SearchTree();
+		
+		System.out.println("SEARCH TREE NUMBER");
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
@@ -45,6 +50,7 @@ public class Test {
 		searchTreeAlpha.copia(searchTreeNumber);
 		
 		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeNumber);
+		//System.out.println("time CPU: "+(th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -55,7 +61,9 @@ public class Test {
 	
 	public static void testAVLTreeAlpha(String fileName){
 		AVLTree avlTreeAlpha = new AVLTree();
+		
 		System.out.println("AVL TREE ALPHA");
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 		
@@ -78,6 +86,7 @@ public class Test {
 		AVLTree avlTreeAlpha = new AVLTree();
 		
 		System.out.println("AVL TREE NUMBER");
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 
@@ -103,6 +112,8 @@ public class Test {
 	public static void testAVLTableAlpha(String fileName){
 		AVLTable avlTableAlpha = new AVLTable();
 		
+		System.out.println("AVL TABLE ALPHA");
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 
@@ -124,6 +135,8 @@ public class Test {
 	
 	public static void testAVLTableNumber(String fileName){
 		AVLTable avlTableAlpha = new AVLTable();
+		
+		System.out.println("AVL TABLE NUMBER");
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
@@ -149,6 +162,8 @@ public class Test {
 	public static void testSortedListAlpha(String fileName){
 		SortedList sListAlpha = new SortedList();
 		
+		System.out.println("SORTED LIST ALPHA");
+		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 
@@ -168,6 +183,8 @@ public class Test {
 	
 	public static void testSortedListNumber(String fileName){
 		SortedList sListAlpha = new SortedList();
+		
+		System.out.println("SORTED LIST NUMBER");
 		
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();

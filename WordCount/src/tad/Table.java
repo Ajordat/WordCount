@@ -112,8 +112,9 @@ public abstract class Table {
 	}
 	
 	public void toHtml(PrintWriter printw){
+		int id = 1;
 		for(BinaryTree t : table){
-			t.toHtml(printw);
+			id = t.toHtml(id, printw);
 		}
 	}
 	

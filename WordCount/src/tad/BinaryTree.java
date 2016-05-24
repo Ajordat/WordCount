@@ -99,12 +99,19 @@ public abstract class BinaryTree {
 	}
 	
 	public void toHtml(PrintWriter printw){
-		if(tree != null) toHtml(printw, tree);
+		if(tree != null) toHtml(1, printw, tree);
 	}
 	
-	private void toHtml(PrintWriter printw, NodeB node){
-		if(node.left != null) toHtml(printw, node.left);
-		printw.println("<tr align=center><td>"+((Word)node.e).getWord()+"</td><td>"+((Word)node.e).getValue()+"</td></tr>");
-		if(node.right != null) toHtml(printw, node.right);
+	public int toHtml(int id, PrintWriter printw){
+		if(tree != null) id = toHtml(id, printw, tree);
+		return id;
+	}
+	
+	private int toHtml(int id, PrintWriter printw, NodeB node){
+		if(node.left != null) id = toHtml(id, printw, node.left);
+		printw.println("<tr align=center><td>"+id+"</td><td>"+((Word)node.e).getWord()+"</td><td>"+((Word)node.e).getValue()+"</td></tr>");
+		id++;
+		if(node.right != null) id = toHtml(id, printw, node.right);
+		return id;
 	}
 }

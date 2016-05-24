@@ -105,7 +105,7 @@ public class Menu {
 	public void testAVLTable(int option, String fileName){
 		switch(option){
 			case Menu.NUMBER_OF_APPEARANCES:
-				Test.testAVLTreeNumber(fileName);
+				Test.testAVLTableNumber(fileName);
 				break;
 			case Menu.APHABETICALLY:
 				Test.testAVLTableAlpha(fileName);

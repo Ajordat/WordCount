@@ -36,12 +36,6 @@ public class NodeB {
 	}
 	
 	public int height(){
-		/*
-		if(left == null && right == null) return 1;
-		if(left == null) return right.height()+1;
-		if(right == null) return left.height()+1;
-		return Math.max(left.height(), right.height())+1;
-		*/
 		return height;
 	}
 	
