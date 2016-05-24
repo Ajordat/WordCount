@@ -28,7 +28,6 @@ public class SearchTree extends BinaryTree {
 	public void addValue(Element e){
 		if(tree == null){
 			tree = new NodeSearch(e);
-			tree.getElement().increaseValue();
 		}
 		else{
 			size += ((NodeSearch) tree).addValue(e);

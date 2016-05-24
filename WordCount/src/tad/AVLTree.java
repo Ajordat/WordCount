@@ -2,7 +2,6 @@ package tad;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 import logic.Word;
@@ -69,8 +68,8 @@ public class AVLTree extends BinaryTree {
 	
 	public int height(NodeB node){
 		if(node == null) return 0;
-		return node.height();
-		//return node.height;
+		//return node.height();
+		return node.height;
 	}
 	
 	private NodeB addValue(NodeB node, Element element){
@@ -89,6 +88,9 @@ public class AVLTree extends BinaryTree {
 					node = rotationLR(node);
 				}
 			}
+			//node.right = updateHeight(node.right);
+			//node.left = updateHeight(node.left);
+			node = updateHeight(node);
 		}
 		else if(element.compareTo(((Word)node.e).getValue()) <= 0){
 			if(node.right == null){
@@ -105,7 +107,13 @@ public class AVLTree extends BinaryTree {
 					node = rotationRL(node);
 				}
 			}
+			//node.right = updateHeight(node.right);
+			//node.left = updateHeight(node.left);
+			node = updateHeight(node);
 		}
+		//node.right = updateHeight(node.right);
+		//node.left = updateHeight(node.left);
+		//node = updateHeight(node);
 		return node;
 	}
 	
@@ -126,6 +134,9 @@ public class AVLTree extends BinaryTree {
 					node = rotationLR(node);
 				}
 			}
+			//node.right = updateHeight(node.right);
+			//node.left = updateHeight(node.left);
+			node = updateHeight(node);
 		}
 		else if(element.compareTo(node.e) > 0){
 			if(node.right == null){
@@ -143,17 +154,25 @@ public class AVLTree extends BinaryTree {
 					node = rotationRL(node);
 				}
 			}
+			//node.right = updateHeight(node.right);
+			//node.left = updateHeight(node.left);
+			node = updateHeight(node);
 		}
 		else node.e.increaseValue();
+		//node.right = updateHeight(node.right);
+		//node.left = updateHeight(node.left);
 		//node = updateHeight(node);
 		return node;
 	}
 	
 	private NodeB updateHeight(NodeB node) {
+		if(node == null) return null;
+		if(node.right != null) node.right.height = Math.max(height(node.right.left), height(node.right.right))+1;
+		if(node.left != null) node.left.height = Math.max(height(node.left.left), height(node.left.right))+1;
 		node.height = Math.max(height(node.left), height(node.right))+1;
 		return node;
 	}
-
+	
 	public void remove(String key){
 		tree = remove(tree, key);
 	}

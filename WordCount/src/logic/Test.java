@@ -55,7 +55,7 @@ public class Test {
 	
 	public static void testAVLTreeAlpha(String fileName){
 		AVLTree avlTreeAlpha = new AVLTree();
-		
+		System.out.println("AVL TREE ALPHA");
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 		
@@ -77,6 +77,7 @@ public class Test {
 	public static void testAVLTreeNumber(String fileName){
 		AVLTree avlTreeAlpha = new AVLTree();
 		
+		System.out.println("AVL TREE NUMBER");
 		ThreadMXBean th = ManagementFactory.getThreadMXBean();
 		MemoryMXBean tm = ManagementFactory.getMemoryMXBean();
 
