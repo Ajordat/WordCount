@@ -24,8 +24,7 @@ public class Test {
 		
 		searchTreeAlpha.loadFile(fileName);
 		
-		//Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
-		System.out.println("time CPU: "+(th.getCurrentThreadCpuTime()-timeCPU)/1000000);
+		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 			
@@ -50,7 +49,6 @@ public class Test {
 		searchTreeAlpha.copia(searchTreeNumber);
 		
 		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeNumber);
-		//System.out.println("time CPU: "+(th.getCurrentThreadCpuTime()-timeCPU)/1000000);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		

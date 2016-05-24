@@ -4,11 +4,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import tad.AVLTree;
 import tad.BinaryTree;
 import tad.SortedList;
 import tad.Table;
 
 public class Html {
+	
+	protected static final int INT = 4;
+	protected static final int NODEB = 1;
+	protected static final int NODE = 1;
+	protected static final int STRING = 5;
 	
 	public static void toHtml(long time, BinaryTree tree){
 		FileWriter filewriter = null;
@@ -19,6 +25,7 @@ public class Html {
 			e.printStackTrace();
 			return;
 		}
+		int memoria = INT + tree.size() * (STRING + 2 * (INT + NODEB) );
 	    printw = new PrintWriter(filewriter);
 	    printw.println("<html>");
 	    printw.println("<head><title>Informació recompte</title></head>");     
@@ -27,6 +34,7 @@ public class Html {
 	    printw.println("<h1 align=center><b><strong>Dades</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
 	    printw.println("<tr align=center><td> Temps </td><td> "+time+"ms </td></tr>");
+	    printw.println("<tr align=center><td> Memòria </td><td> "+memoria+"B </td></tr>");
 	    printw.println("</table>");
 	    
 	    printw.println("<h1 align=center><b><strong>Llistat de paraules</strong></b></h1>");
@@ -52,6 +60,7 @@ public class Html {
 			e.printStackTrace();
 			return;
 		}
+		int memoria = INT + 2 * NODE + list.size() * (STRING + INT + NODE);
 	    printw = new PrintWriter(filewriter);
 	    printw.println("<html>");
 	    printw.println("<head><title>Informació recompte</title></head>");     
@@ -60,11 +69,12 @@ public class Html {
 	    printw.println("<h1 align=center><b><strong>Dades</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
 	    printw.println("<tr align=center><td> Temps </td><td> "+time+"ms </td></tr>");
+	    printw.println("<tr align=center><td> Memoria </td><td> "+memoria+"B </td></tr>");
 	    printw.println("</table>");
 	    
 	    printw.println("<h1 align=center><b><strong>Llistat de paraules</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
-	    printw.println("<tr align=center><td>Paraula</td><td>Aparicions</td></tr>");
+	    printw.println("<tr align=center><td>Id</td><td>Paraula</td><td>Aparicions</td></tr>");
 	    
 	    list.goFirst();
 	    int id = 1;
@@ -91,6 +101,10 @@ public class Html {
 			e.printStackTrace();
 			return;
 		}
+		int memoria = INT;
+		for(BinaryTree tree : t.getTable()){
+			memoria += INT + tree.size() * (STRING + 2 * (INT + NODEB) );
+		}
 	    printw = new PrintWriter(filewriter);
 	    printw.println("<html>");
 	    printw.println("<head><title>Informació recompte</title></head>");     
@@ -99,6 +113,7 @@ public class Html {
 	    printw.println("<h1 align=center><b><strong>Dades</strong></b></h1>");
 	    printw.println("<table border=1 align=center>");
 	    printw.println("<tr align=center><td> Temps </td><td> "+time+"ms </td></tr>");
+	    printw.println("<tr align=center><td> Memoria </td><td> "+memoria+"B </td></tr>");
 	    printw.println("</table>");
 	    
 	    printw.println("<h1 align=center><b><strong>Llistat de paraules</strong></b></h1>");
