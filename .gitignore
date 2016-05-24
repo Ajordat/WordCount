@@ -2,6 +2,7 @@
 /build/
 /bin/
 /WordCount/bin/.gitignore
+/WordCount/paraules.html
 target/
  
 # OS Files #
