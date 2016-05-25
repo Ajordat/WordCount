@@ -6,10 +6,13 @@ import java.lang.management.ThreadMXBean;
 
 import tad.AVLTable;
 import tad.AVLTree;
+import tad.Memory;
 import tad.SearchTree;
 import tad.SortedList;
 
 public class Test {
+	
+	protected static final int EMPTY = 0;
 	
 	public static void testSearchTreeAlpha(String fileName){
 		SearchTree searchTreeAlpha = new SearchTree();
@@ -24,7 +27,7 @@ public class Test {
 		
 		searchTreeAlpha.loadFile(fileName);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
+		Html.toHtml(EMPTY, (th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeAlpha);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 			
@@ -48,7 +51,9 @@ public class Test {
 		SearchTree searchTreeNumber = new SearchTree();
 		searchTreeAlpha.copia(searchTreeNumber);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, searchTreeNumber);
+		timeCPU = (th.getCurrentThreadCpuTime()-timeCPU)/1000000;
+		
+		Html.toHtml(Memory.get(searchTreeAlpha), timeCPU, searchTreeNumber);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -69,7 +74,7 @@ public class Test {
 		long memory = tm.getHeapMemoryUsage().getUsed();
 		avlTreeAlpha.loadFile(fileName);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTreeAlpha);
+		Html.toHtml(EMPTY, (th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTreeAlpha);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -95,7 +100,9 @@ public class Test {
 		AVLTree avlTreeNumber = new AVLTree();
 		avlTreeAlpha.copia(avlTreeNumber);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTreeNumber);
+		timeCPU = (th.getCurrentThreadCpuTime()-timeCPU)/1000000;
+		
+		Html.toHtml(Memory.get(avlTreeAlpha), timeCPU, avlTreeNumber);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -120,7 +127,7 @@ public class Test {
 		
 		avlTableAlpha.loadFile(fileName);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTableAlpha);
+		Html.toHtml(EMPTY, (th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTableAlpha);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -146,7 +153,9 @@ public class Test {
 		AVLTree avlTableNumber = new AVLTree();
 		avlTableAlpha.copia(avlTableNumber);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTableNumber);
+		timeCPU = (th.getCurrentThreadCpuTime()-timeCPU)/1000000;
+		
+		Html.toHtml(Memory.get(avlTableAlpha), (th.getCurrentThreadCpuTime()-timeCPU)/1000000, avlTableNumber);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -169,7 +178,7 @@ public class Test {
 		long memory = tm.getHeapMemoryUsage().getUsed();
 		sListAlpha.loadFile(fileName);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, sListAlpha);
+		Html.toHtml(EMPTY, (th.getCurrentThreadCpuTime()-timeCPU)/1000000, sListAlpha);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		
@@ -195,7 +204,9 @@ public class Test {
 		SortedList sListNumber = new SortedList();
 		sListAlpha.copia(sListNumber);
 		
-		Html.toHtml((th.getCurrentThreadCpuTime()-timeCPU)/1000000, sListNumber);
+		timeCPU = (th.getCurrentThreadCpuTime()-timeCPU)/1000000;
+		
+		Html.toHtml(Memory.get(sListAlpha), timeCPU, sListNumber);
 		
 		System.out.println("memory used: "+(tm.getHeapMemoryUsage().getUsed()-memory));
 		

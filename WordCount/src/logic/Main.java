@@ -8,6 +8,7 @@ public class Main {
 		int option, optionResults;
 		String fileName = "";
 		Menu menu = new Menu();
+		System.out.println(menu);
 		while(!exit){
 			menu.printMain();
 			option = menu.getOption();
