@@ -19,15 +19,15 @@ public class SearchTree extends BinaryTree {
 		if(tree == null){
 			tree = new NodeSearch(e);
 			tree.getElement().increaseValue();
+			size = 1;
 		}
-		else{
-			size += ((NodeSearch) tree).addWord(e);
-		}
+		else size += ((NodeSearch) tree).addWord(e);
 	}
 	
 	public void addValue(Element e){
 		if(tree == null){
 			tree = new NodeSearch(e);
+			size = 1;
 		}
 		else{
 			size += ((NodeSearch) tree).addValue(e);

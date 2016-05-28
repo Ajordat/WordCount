@@ -15,7 +15,7 @@ public class NodeSearch extends NodeB{
 				left.getElement().increaseValue();
 				return 1;
 			}
-			else ((NodeSearch) left).addWord(element);
+			return ((NodeSearch) left).addWord(element);
 		}
 		else if (element.compareTo(e) > 0){
 			if(right == null){
@@ -23,7 +23,7 @@ public class NodeSearch extends NodeB{
 				right.getElement().increaseValue();
 				return 1;
 			}
-			else ((NodeSearch) right).addWord(element);
+			return ((NodeSearch) right).addWord(element);
 		}
 		else e.increaseValue();
 		return 0;
@@ -35,14 +35,14 @@ public class NodeSearch extends NodeB{
 				left = new NodeSearch(element);
 				return 1;
 			}
-			else ((NodeSearch) left).addValue(element);
+			return ((NodeSearch) left).addValue(element);
 		}
 		else if (element.compareTo(((Word)e).getValue()) <= 0){
 			if(right == null){
 				right = new NodeSearch(element);
 				return 1;
 			}
-			else ((NodeSearch) right).addValue(element);
+			return ((NodeSearch) right).addValue(element);
 		}
 		else e.increaseValue();
 		return 0;

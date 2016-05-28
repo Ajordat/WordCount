@@ -25,9 +25,9 @@ public class AVLTable extends Table{
 		((AVLTree) table[hash(key)]).remove(key);
 	}
 
-	public void copia(AVLTree prova) {
+	public void copia(AVLTree tree) {
 		for(BinaryTree t: table){
-			((AVLTree) t).copia(prova);
+			((AVLTree) t).copia(tree);
 		}
 	}
 	
