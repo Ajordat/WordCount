@@ -1,6 +1,5 @@
 # Word count
 
-Word counter project. 
 
 Projecte de recompte de paraules. 
 La premisa inicial d'aquest projecte és l'implementació d'un sistema que s'encarregui de comptar el nombre de vegades que apareixen 
@@ -8,10 +7,10 @@ les paraules en un mateix text i les mostra ordenades per nombre d'aparicions.
 
 Partint d'aquí, en realitat es tracta d'un projecte que ho fa donant a escollir entre les següents estructures de dades:
 
-  Arbre binari
-  Arbre AVL
-  Taula encadenada indirecta amb arbres AVL
-  Llista ordenada
+    Arbre binari
+    Arbre AVL
+    Taula encadenada indirecta amb arbres AVL
+    Llista ordenada
   
 A més a més es pot escollir si veure el resultat ordenat per nombre d'aparicions o de forma alfabètica i mostra resultats de memòria
 utilitzada i temps utilitzat en fer tota aquesta cerca i ordenació.
