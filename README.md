@@ -22,5 +22,4 @@ El projecte inclou la memòria resultant de la pràctica ja que va ser una memò
 fetes. Espero que a algú li serveixi per alguna cosa, encara que només sigui per una lectura ràpida.
 
 
-Ajordat 
-
+Àlex Jordà
