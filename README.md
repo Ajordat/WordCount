@@ -2,7 +2,7 @@
 
 
 Word counting project.
-The initial premise of this project is the implementation of a system that is responsible for counting the number of times the words appear in the same text and show them sorted by number of appearances.
+The initial premise of this project is the implementation of a system that is responsible for counting the number of times the words appear in the same text and show them sorted alphabetically or by number of appearances.
 
 Starting from here, it is actually a project that does so by choosing between the following data structures:
 
