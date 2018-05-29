@@ -1,25 +1,23 @@
 # Word count
 
 
-Projecte de recompte de paraules. 
-La premisa inicial d'aquest projecte és l'implementació d'un sistema que s'encarregui de comptar el nombre de vegades que apareixen 
-les paraules en un mateix text i les mostra ordenades per nombre d'aparicions. 
+Word counting project.
+The initial premise of this project is the implementation of a system that is responsible for counting the number of times the words appear in the same text and show them sorted by number of appearances.
 
-Partint d'aquí, en realitat es tracta d'un projecte que ho fa donant a escollir entre les següents estructures de dades:
+Starting from here, it is actually a project that does so by choosing between the following data structures:
 
-    Arbre binari
-    Arbre AVL
-    Taula encadenada indirecta amb arbres AVL
-    Llista ordenada
+    Binary tree
+    AVL tree
+    Hash table with AVL trees
+    Ordered list
   
-A més a més es pot escollir si veure el resultat ordenat per nombre d'aparicions o de forma alfabètica i mostra resultats de memòria
-utilitzada i temps utilitzat en fer tota aquesta cerca i ordenació.
+You can also choose to see the result, sorted by number of appearances or alphabetically, and shows results of memory
+and time used to do both, the search and the sorting.
 
-L'objectiu d'això és òbvi, es tracta d'un projecte educatiu amb l'objectiu de poder comparar les diferents estructures de dades utilitzades
-en quant al temps utilitzat per a la cerca i l'ordenació i la memòria utilitzada.
+The objective of this is obvious, it is an educational project with the aim of comparing the different data structures used
+in terms of the time used for the search and the sorting and the memory used.
 
-El projecte inclou la memòria resultant de la pràctica ja que va ser una memòria elaborada i que extreu conclusions de les comparacions
-fetes. Espero que a algú li serveixi per alguna cosa, encara que només sigui per una lectura ràpida.
+The project includes the resulting technical memory of the practice since it was an elaborate memory and that it extracts conclusions from the comparisons done. I hope someone serves for something, even if only for a quick read. It's written in catalan though.
 
 
 Àlex Jordà
